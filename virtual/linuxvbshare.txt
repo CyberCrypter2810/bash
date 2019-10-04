@@ -1,0 +1,36 @@
+Install virtualbox guest additions CD image
+will find it in /media/user/
+edit commands to contain the appropiate user name
+best to be sudo not root as of now
+********************************************************
+$sudo ./media/user/Vbox_GAs_6.0.12/VBoxLinuxAdditions.run;
+$reboot;
+*********************************************************
+After the upper command is completed, make a folder on the metal machine. (The one that the computer usually boots up to.)
+
+In the linux VitualBox software settings, go to Devices, Shared Folders, Shared Folders Settings, there click on machine folders to select it.
+Then to the right, click new folder and search for the folder that you want to share between the virtual machine and the host machine.
+Select the auto mount option, make permanent is also an option as well if it is an option.
+(It's your choice on the last option. You can change it later.)
+
+Another way is to go to the settings of the virtual box manager and do the configuration above. 
+Settings, Shared Folders, Machine Folder, new folder(buttion on the right side with the + sign).
+Select folder, select auto mount, (you can choose on this one, if it's there) make permanent.
+
+In the linux virtualbox terminal, you need too make a folder that will be the mount point that virtualbox will host the shared folder.
+Best place is on the Desktop.
+Feel free to put it anywhere else.
+
+Command below will make it for you.
+***************************************
+$sudo mkdir ~/Desktop/share;
+***************************************
+Now to mount.
+***************************************
+$sudo mount -t vboxsf metalfolder ~/Desktop/share;
+******************************************************
+For more information:
+https://www.geeksforgeeks.org/create-shared-folder-host-os-guest-os-virtual-box/
+
+For Windows virtualbox:
+https://helpdeskgeek.com/virtualization/virtualbox-share-folder-host-guest/
